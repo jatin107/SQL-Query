@@ -1,0 +1,9 @@
+select *
+from W_NB_EXT_Table r
+where not exists (select 1
+                  from W_NB_EXT_Table c inner join
+                       W_NB_Member_Details_And_MedHistory_Table t
+                       on t.W_NB_WIName = c.W_NB_WIName
+                  where t.W_NB_WIName = r.W_NB_WIName and c.W_NB_WIName = r.W_NB_WIName
+                 );
+				 
