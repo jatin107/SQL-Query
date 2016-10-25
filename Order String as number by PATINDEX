@@ -1,0 +1,22 @@
+
+	   select dbo.RemoveNonAlphaCharacters(c1),c1 from jatin_temp order by 
+	  CAST( dbo.RemoveNonAlphaCharacters(c1)AS INT),  SUBSTRING(c1,1,1)
+	   	   ,CAST(SUBSTRING(c1,2,7) AS INT)
+         
+         
+         
+         
+            	   
+	alter Function [dbo].[RemoveNonAlphaCharacters](@Temp VarChar(1000))
+Returns VarChar(1000)
+AS
+Begin
+
+    Declare @KeepValues as varchar(50)
+    Set @KeepValues = '%[^0-9]%'
+    While PatIndex(@KeepValues, @Temp) > 0
+    
+        Set @Temp = 0
+
+    Return @Temp
+End
