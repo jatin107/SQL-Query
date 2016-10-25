@@ -1,13 +1,8 @@
-
-	   select dbo.RemoveNonAlphaCharacters(c1),c1 from jatin_temp order by 
+select dbo.RemoveNonAlphaCharacters(c1),c1 from jatin_temp order by 
 	  CAST( dbo.RemoveNonAlphaCharacters(c1)AS INT),  SUBSTRING(c1,1,1)
 	   	   ,CAST(SUBSTRING(c1,2,7) AS INT)
-         
-         
-         
-         
-            	   
-	alter Function [dbo].[RemoveNonAlphaCharacters](@Temp VarChar(1000))
+-----------------------------------------------
+alter Function [dbo].[RemoveNonAlphaCharacters](@Temp VarChar(1000))
 Returns VarChar(1000)
 AS
 Begin
@@ -20,3 +15,5 @@ Begin
 
     Return @Temp
 End
+------------------------------------
+ Set @Temp = Stuff(@Temp, PatIndex(@KeepValues, @Temp), 1, '')
